@@ -1,6 +1,6 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.0.7
+Version 1.0.8
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
@@ -52,6 +52,9 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.8 =
+* fixed a new bug at 1.0.7
 
 = 1.0.7 =
 * checked with the latest WordPress 4.4.2
