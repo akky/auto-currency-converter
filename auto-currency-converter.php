@@ -5,7 +5,7 @@
   Plugin URI: http://wordpress.org/extend/plugins/auto-currency-converter
   Description: Adds a price in the second currency automatically
   Author: Akky AKIMOTO
-  Version: 1.0.8
+  Version: 1.0.9
   Author URI: http://akimoto.jp/
   License: GPL2
  */
@@ -33,7 +33,7 @@ function acc_check_environment() {
       deactivate_plugins( __FILE__ );
       exit();
     }
-/*    if (!extension_loaded('intl')) {
+    if (!class_exists('NumberFormatter')) {
       echo '<div class="error">';
       echo '<p>Automatic Currency Converter requires <a href="http://php.net/manual/book.intl.php">php_intl extension</a>.</p>';
       echo '<p>The plugin has been deactivated.</p>';
@@ -41,7 +41,7 @@ function acc_check_environment() {
       require_once ABSPATH . '/wp-admin/includes/plugin.php';
       deactivate_plugins( __FILE__ );
       exit();
-  }*/
+  }
 }
 
 load_plugin_textdomain( 'auto_currency_converter', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );

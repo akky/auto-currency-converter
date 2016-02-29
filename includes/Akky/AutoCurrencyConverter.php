@@ -47,6 +47,9 @@ class AutoCurrencyConverter
      */
     public function tagifyConvertedMoney($text)
     {
+        if (has_tag('acc_disable')) {
+          return $text;
+        }
         // if the post was modified before the begin date set by plugin, pass.
         $options = get_option(self::DB_OPTION_KEY);
         if (is_array($options) && array_key_exists('begin_date', $options)) {
