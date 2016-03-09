@@ -48,6 +48,4 @@ load_plugin_textdomain( 'auto_currency_converter', false, dirname( plugin_basena
 
 require_once __DIR__. '/vendor/autoload.php';
 $manager = new Oow\Plugin\PluginManager;
-
-require_once __DIR__. '/includes/Akky/AutoCurrencyConverter.php';
 $manager->addPlugin(new Akky\AutoCurrencyConverter());
