@@ -1,12 +1,10 @@
 {
-	"require" : {
-		"eabay/oow": "dev-master-dev",
-        "akky/money": "dev-master"
-	},
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@bitbucket.org:akky/money.git"
+    "require" : {
+		    "eabay/oow": "1.4.0"
+    },
+		"autoload": {
+        "psr-4": {
+            "Akky\\": "includes/Akky"
         }
-    ]
+    }
 }

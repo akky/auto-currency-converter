@@ -2,7 +2,7 @@
 
 namespace Oow\Settings;
 
-use Oow\Settings\Section;
+use Dflydev\DotAccessData\Data;
 use Oow\Settings\Field\Field;
 
 /** @Plugin */
@@ -18,14 +18,23 @@ class SettingsPage
      */
     protected $currentSection;
 
+    /**
+     * @var array of WP_Screen::add_help_tab() arguments
+     */
+    protected $helpTabs = array();
+
     public function __construct(array $options = array())
     {
         $options['field_values'] = get_option($options['option_name']);
 
         $options = array_merge(array(
-            'sanitize_callback' => '',
+            'capability'        => 'manage_options',
+            'sanitize_callback' => array($this, 'sanitize'),
             'sections'          => array(),
-            'fields'            => array()
+            'fields'            => array(),
+            'parent_slug'       => 'options-general.php',
+            'icon_url'          => '',
+            'position'          => null
         ), $options);
 
         $this->registry = $options;
@@ -69,25 +78,59 @@ class SettingsPage
     }
 
     /**
+     * Shortcut method to add form error/update notices via add_settings_error()
+     *
+     * @param $code
+     * @param $message
+     * @param string $type
+     */
+    public function addError($code, $message, $type = 'error')
+    {
+        add_settings_error($this->registry['option_name'], $code, $message, $type);
+    }
+
+    /**
+     * Returns the value of option
+     *
+     * @param string $name Name of option
+     * @param mixed $default Default value
+     * @return array|mixed|null Value of option
+     */
+    public function getOption($name, $default = null)
+    {
+        $data = new Data((array)get_option($this->registry['option_name']));
+        return $data->get($name, $default);
+    }
+
+    /**
+     * Method for sanitize_callback option.
+     * Override to add your own sanitization/validation logic.
+     *
+     * @param $input
+     * @return mixed
+     */
+    public function sanitize($input)
+    {
+        return $input;
+    }
+
+    /**
      * Renders settings page
      */
     public function render()
     {
         $reg = $this->registry;
-    ?>
+        ?>
         <div class="wrap">
-            <div class="icon32" id="icon-options-general"><br></div>
-            <h2><?php echo $reg['page_title']; ?></h2>
+            <h1><?php echo $reg['page_title']; ?></h1>
             <form action="options.php" method="post">
-            <?php settings_fields($reg['option_name']); ?>
-            <?php do_settings_sections($reg['option_name']); ?>
-            <p class="submit">
-                <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
-                <input name="Reset" type="reset" class="button" value="<?php esc_attr_e('Reset'); ?>" />
-            </p>
+                <?php settings_errors($reg['option_name']) ?>
+                <?php settings_fields($reg['option_name']); ?>
+                <?php do_settings_sections($reg['option_name']); ?>
+                <?php submit_button(); ?>
             </form>
         </div>
-    <?php
+        <?php
     }
 
     /** @Hook(tag="admin_init") */
@@ -113,12 +156,41 @@ class SettingsPage
     {
         $reg = $this->registry;
 
-        add_options_page(
-            $reg['page_title'],
-            $reg['menu_title'],
-            $reg['capability'],
-            $reg['option_name'],
-            array($this, 'render')
-        );
+        if ($reg['parent_slug'] == 'own') {
+
+            $hookSuffix = add_menu_page(
+                $reg['page_title'],
+                $reg['menu_title'],
+                $reg['capability'],
+                $reg['option_name'],
+                array($this, 'render'),
+                $reg['icon_url'],
+                $reg['position']
+            );
+        } else {
+            $hookSuffix = add_submenu_page(
+                $reg['parent_slug'],
+                $reg['page_title'],
+                $reg['menu_title'],
+                $reg['capability'],
+                $reg['option_name'],
+                array($this, 'render')
+            );
+        }
+
+        add_action('load-'.$hookSuffix, array($this, 'addHelpTabs'));
+    }
+
+    /**
+     * Add Help Tabs
+     *
+     * @uses WP_Screen::add_help_tab()
+     */
+    public function addHelpTabs()
+    {
+        foreach ($this->helpTabs as $tab) {
+            get_current_screen()->add_help_tab($tab);
+        }
+
     }
 }

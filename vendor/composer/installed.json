@@ -1,92 +1,5 @@
 [
     {
-        "name": "eabay/oow",
-        "version": "dev-master-dev",
-        "version_normalized": "dev-master-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/eabay/oow.git",
-            "reference": "9bd0d14bba9ee9735ca2b8f0f097f27af1128041"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/eabay/oow/zipball/9bd0d14bba9ee9735ca2b8f0f097f27af1128041",
-            "reference": "9bd0d14bba9ee9735ca2b8f0f097f27af1128041",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/annotations": "1.*",
-            "php": ">=5.3.2"
-        },
-        "time": "2013-01-15 18:00:20",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Oow": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Erhan Abay",
-                "email": "erhanabay@gmail.com"
-            }
-        ],
-        "description": "Object-Oriented approach to WordPress plugin development",
-        "homepage": "https://github.com/eabay/oow",
-        "keywords": [
-            "plugin",
-            "wordpress",
-            "wordpress plugin development"
-        ]
-    },
-    {
-        "name": "akky/money",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "git@bitbucket.org:akky/money.git",
-            "reference": "6ecbb083e7ca57c7a3616cac516a1b26d29531c4"
-        },
-        "require": {
-            "doctrine/annotations": "1.*",
-            "php": ">=5.3.2"
-        },
-        "time": "2013-05-13 02:02:25",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Akky": "lib/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Akky Akimoto",
-                "email": "akimoto+money@gmail.com"
-            }
-        ],
-        "description": "Currency notation converter",
-        "homepage": "https://bitbucket.org/akky/money",
-        "keywords": [
-            "currency",
-            "dollar",
-            "exchange",
-            "foreign exchange",
-            "jpy",
-            "money",
-            "usd"
-        ]
-    },
-    {
         "name": "doctrine/lexer",
         "version": "v1.0.1",
         "version_normalized": "1.0.1.0",
@@ -143,18 +56,74 @@
         ]
     },
     {
-        "name": "doctrine/annotations",
-        "version": "v1.2.6",
-        "version_normalized": "1.2.6.0",
+        "name": "dflydev/dot-access-data",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/doctrine/annotations.git",
-            "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4"
+            "url": "https://github.com/dflydev/dflydev-dot-access-data.git",
+            "reference": "7a0960d088119818ce7687d200c363b01d183cbe"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/annotations/zipball/f4a91702ca3cd2e568c3736aa031ed00c3752af4",
-            "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4",
+            "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-data/zipball/7a0960d088119818ce7687d200c363b01d183cbe",
+            "reference": "7a0960d088119818ce7687d200c363b01d183cbe",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "time": "2015-08-13 03:51:18",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Dflydev\\DotAccessData": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dragonfly Development Inc.",
+                "email": "info@dflydev.com",
+                "homepage": "http://dflydev.com"
+            },
+            {
+                "name": "Beau Simensen",
+                "email": "beau@dflydev.com",
+                "homepage": "http://beausimensen.com"
+            }
+        ],
+        "description": "Given a deep data structure, access data by dot notation.",
+        "homepage": "https://github.com/dflydev/dflydev-dot-access-data",
+        "keywords": [
+            "access",
+            "data",
+            "dot",
+            "notation"
+        ]
+    },
+    {
+        "name": "doctrine/annotations",
+        "version": "v1.2.7",
+        "version_normalized": "1.2.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/annotations.git",
+            "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+            "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
             "shasum": ""
         },
         "require": {
@@ -165,7 +134,7 @@
             "doctrine/cache": "1.*",
             "phpunit/phpunit": "4.*"
         },
-        "time": "2015-06-17 12:21:22",
+        "time": "2015-08-31 12:32:49",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -210,6 +179,52 @@
             "annotations",
             "docblock",
             "parser"
+        ]
+    },
+    {
+        "name": "eabay/oow",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/eabay/oow.git",
+            "reference": "92cdde1316e76c215c3cb4bd67e420e39a1acbe6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/eabay/oow/zipball/92cdde1316e76c215c3cb4bd67e420e39a1acbe6",
+            "reference": "92cdde1316e76c215c3cb4bd67e420e39a1acbe6",
+            "shasum": ""
+        },
+        "require": {
+            "dflydev/dot-access-data": "~1.0",
+            "doctrine/annotations": "1.*",
+            "php": ">=5.3.2"
+        },
+        "time": "2015-11-02 09:59:56",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Oow": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Erhan Abay",
+                "email": "erhanabay@gmail.com"
+            }
+        ],
+        "description": "Object-Oriented approach to WordPress plugin development",
+        "homepage": "https://github.com/eabay/oow",
+        "keywords": [
+            "plugin",
+            "wordpress",
+            "wordpress plugin development"
         ]
     }
 ]

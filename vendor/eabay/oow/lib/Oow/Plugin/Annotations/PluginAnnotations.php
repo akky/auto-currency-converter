@@ -42,4 +42,13 @@ final class AjaxResponse
     public $action;
     /** @var boolean */
     public $nopriv = false;
+    /** @var boolean */
+    public $json = true;
+}
+
+/** @Annotation */
+final class Embed extends Annotation {
+    public $id;
+    public $regex;
+    public $priority = 10;
 }
