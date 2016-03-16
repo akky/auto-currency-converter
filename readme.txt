@@ -1,6 +1,6 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.0.9
+Version 1.1.0
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
@@ -10,7 +10,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The plugin makes it easy to add a price in the second currency. US dollars-Japanese Yen are automatically converted. (more currencies are being planned)
+The plugin automatically adds a price in the second currency. US dollars-Japanese Yen are currently supported. (more currencies are being planned)
 
 ===================================================================
 
@@ -37,6 +37,10 @@ For bloggers who already did such conversion manually, the plugin has an option 
  - numbers bigger than billion are not handled
  - billion/trillion are in US style, not UK style (because it can not be supported both notations simultaneously)
 
+= What if I do not want to display auto-converted prices in a specific post? =
+
+ You may suppress the conversion by giving "acc_disable" tag on the post.
+
 = How are Japanese zenkaku(full-width) digits handled? =
 
  All Japanese zenkaku digits are converted, then checked and filtered. Because of that, all digits in the text, even though they are not money related, will be converted with regular ASCII digits.
@@ -52,6 +56,10 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.0 =
+* removed php_intl extension check
+* even if php_intl extension is off, it works with the symfony/intl compatible library. Performance-wise, php_intl is better to be turned on. And it only supports English locale.
 
 = 1.0.9 =
 * added a feature to disable conversion on specific post with 'acc_disable' tag
