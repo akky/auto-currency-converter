@@ -1,6 +1,9 @@
 <?php
 
 namespace Akky;
+use Oow\Settings\SettingsPage;
+use Oow\Settings\Section;
+use Oow\Settings\Field\TextField;
 
 require_once __DIR__. '/Money/WordPressCachableExchangeRate.php';
 
@@ -164,6 +167,7 @@ class AutoCurrencyConverter
             array( &$this, 'validateOptions')
         );
 
+        $this->registerSectionStatus();
         $this->registerSectionUsage();
         $this->registerSectionDateBegin();
     }
@@ -182,6 +186,17 @@ class AutoCurrencyConverter
     // ------------------------------------------------------------------
     // ---------------------- register sections -------------------------
     // ------------------------------------------------------------------
+
+    protected function registerSectionStatus()
+    {
+        $sectionName = 'acc_status';
+        add_settings_section(
+            $sectionName,
+            __( 'Status', self::PLUGIN_KEY ),
+            array( &$this, 'callbackRenderStatus' ),
+            self::PLUGIN_KEY
+        );
+    }
 
     protected function registerSectionUsage()
     {
@@ -253,11 +268,21 @@ class AutoCurrencyConverter
     // -------------------------- renderers -----------------------------
     // ------------------------------------------------------------------
 
+    public function callbackRenderStatus()
+    {
+        if (extension_loaded('intl')) {
+            echo '<p>' . __( 'Your PHP is using intl extension. Auto conversion runs much faster.', self::PLUGIN_KEY ) . '</p>';
+        } else {
+            echo '<p>' . __( 'Your PHP does not have intl extension, so this plugin is using PHP-based slower formatter, also only works well in English. If possible, I receommend to turn on php_intl extension.', self::PLUGIN_KEY ) . '</p>';
+        }
+    }
+
     public function callbackRenderUsage()
     {
         echo '<p>' . __( 'Add exchanged ammount after the money notations in posts/pages.', self::PLUGIN_KEY ) . '</p>';
         echo '<blockquote>' . __( 'example: <br />"$199,666"<br /> in a post will be changed to <br />"$199,666(￥15,973,280)"<br /><br />The real ammount will be different as the plugin to use the latest exchange rate."', self::PLUGIN_KEY ) . '</blockquote>';
         echo '<p>' . __( 'At now, only US dollars and Japanese yen are supported.', self::PLUGIN_KEY ) . '</p>';
+        echo '<p>' . __( 'tag acc_disable suppress this plugin to convert only on that post.', self::PLUGIN_KEY ) . '</p>';
     }
 
     public function callbackRenderBeginDate()
