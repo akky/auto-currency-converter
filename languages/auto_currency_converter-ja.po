@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Apollo Bar 1.0\n"
-"POT-Creation-Date: 2013-03-29 16:01+0900\n"
-"PO-Revision-Date: 2013-03-29 16:01+0900\n"
-"Last-Translator: Roomshare Japan <siteadmin@roomshare.jp>\n"
+"POT-Creation-Date: 2016-03-19 22:48+0900\n"
+"PO-Revision-Date: 2016-03-19 22:50+0900\n"
+"Last-Translator: \n"
 "Language-Team: Akky AKIMOTO <my surname at gmail>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -15,40 +15,58 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\\.\n"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:18
+#: ..\./includes/Akky/AutoCurrencyConverter.php:24
 msgid "Auto Currency Converter"
 msgstr "自動通貨変換"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:19
+#: ..\./includes/Akky/AutoCurrencyConverter.php:25
 msgid "Auto Currency Converter Setting"
 msgstr "自動通貨変換 設定"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:107
-#: ..\./includes/Akky/AutoCurrencyConverter.php:119
+#: ..\./includes/Akky/AutoCurrencyConverter.php:135
+#: ..\./includes/Akky/AutoCurrencyConverter.php:147
 msgid " Setting"
 msgstr "の設定"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:165
+#: ..\./includes/Akky/AutoCurrencyConverter.php:195
+msgid "Status"
+msgstr "状態"
+
+#: ..\./includes/Akky/AutoCurrencyConverter.php:206
 msgid "Usage"
 msgstr "利用法"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:177
+#: ..\./includes/Akky/AutoCurrencyConverter.php:218
 msgid "Date to begin conversion"
 msgstr "変換開始日"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:184
+#: ..\./includes/Akky/AutoCurrencyConverter.php:225
 msgid "starting date from where the conversion works"
 msgstr "変換が有効になる開始日"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:215
+#: ..\./includes/Akky/AutoCurrencyConverter.php:257
 msgid "The date is not a proper format."
 msgstr "日付の指定が正しくありません。"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:231
+#: ..\./includes/Akky/AutoCurrencyConverter.php:274
+msgid "Your PHP is using intl extension. Auto conversion runs much faster."
+msgstr "PHPのintl拡張がオンになっています。高速に表示されています。"
+
+#: ..\./includes/Akky/AutoCurrencyConverter.php:276
+msgid ""
+"Your PHP does not have intl extension, so this plugin is using PHP-based "
+"slower formatter, also only works well in English. If possible, I receommend "
+"to turn on php_intl extension."
+msgstr ""
+"PHPのintl拡張がオフになっているので、PHP製の低速な互換ライブラリで表示してい"
+"ます。また日英語以外の形式ではフォーマットされません。可能であればintl拡張を"
+"オンにすることをお勧めします。"
+
+#: ..\./includes/Akky/AutoCurrencyConverter.php:282
 msgid "Add exchanged ammount after the money notations in posts/pages."
 msgstr "投稿・固定ページ中の通貨表現に、換算した外貨を併記します。"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:232
+#: ..\./includes/Akky/AutoCurrencyConverter.php:283
 msgid ""
 "example: <br />\"$199,666\"<br /> in a post will be changed to <br />"
 "\"$199,666(￥15,973,280)\"<br /><br />The real ammount will be different as "
@@ -58,11 +76,15 @@ msgstr ""
 "3280円)\"<br />となります。<br />実際の値は最新の通貨レートによって計算されま"
 "す。\""
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:233
+#: ..\./includes/Akky/AutoCurrencyConverter.php:284
 msgid "At now, only US dollars and Japanese yen are supported."
 msgstr "現在、米ドルと日本円のみサポートしています。"
 
-#: ..\./includes/Akky/AutoCurrencyConverter.php:238
+#: ..\./includes/Akky/AutoCurrencyConverter.php:285
+msgid "tag acc_disable suppress this plugin to convert only on that post."
+msgstr "記事に acc_disable タグをつけると、変換表示を行いません。"
+
+#: ..\./includes/Akky/AutoCurrencyConverter.php:290
 msgid ""
 "Set a date after which you make the conversion effective. Only on the pages/"
 "posts which modified after the date will have converted money info, so your "
