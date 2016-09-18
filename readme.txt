@@ -1,11 +1,11 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.1.2
+Version 1.1.3
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
 Requires at least: 3.3.0
-Tested up to: 4.4.2
+Tested up to: 4.6.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,10 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.3 =
+* tested with the latest WordPress version 4.6.1
+* emphasize caution to user who runs her PHP without php-intl extension. enabling php-intl will make the pluging much much faster
 
 = 1.1.2 =
 * when the converted dollar is less than $1, it now displays like '$0.xx' instead of '$0'.

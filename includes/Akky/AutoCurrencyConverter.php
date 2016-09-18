@@ -31,13 +31,13 @@ class AutoCurrencyConverter
 
         $this->_taggers[] = new \Akky\Money\Usd(
             function($value) {
-				if ($value === 0) { return; }
+                if ($value === 0) { return; }
                 return '[acc value="' . $value . '" currency="usd"]';
             }
         );
         $this->_taggers[] = new \Akky\Money\Jpy(
             function($value) {
-				if ($value === 0) { return; }
+                if ($value === 0) { return; }
                 return '[acc value="' . $value . '" currency="jpy"]';
             }
         );
@@ -105,24 +105,24 @@ class AutoCurrencyConverter
         if (!in_array($locale, $supportedLocales)) {
             $locale = 'en';
         }
-		try {
-	        switch ($currency) {
-	        case 'usd':
-	            $jpy = $this->_exchangeRate->convert($value, 'usd', 'jpy');
-	            if ($jpy > 1000) { $jpy = floor($jpy); }
+        try {
+            switch ($currency) {
+            case 'usd':
+                $jpy = $this->_exchangeRate->convert($value, 'usd', 'jpy');
+                if ($jpy > 1000) { $jpy = floor($jpy); }
 
-	            return '(' . \Akky\Money\JpyFormatter::format($jpy, $locale) . ')';
-	        case 'jpy':
-	        default:
-	            $usd = $this->_exchangeRate->convert($value, 'jpy', 'usd');
-	            if ($usd > 1000) { $usd = floor($usd); }
+                return '(' . \Akky\Money\JpyFormatter::format($jpy, $locale) . ')';
+            case 'jpy':
+            default:
+                $usd = $this->_exchangeRate->convert($value, 'jpy', 'usd');
+                if ($usd > 1000) { $usd = floor($usd); }
 
-	            return '(' . \Akky\Money\UsdFormatter::format($usd, $locale) . ')';
-	        }
-		} catch (\RuntimeException $ex) {
-			// for case rate info unavailable, do nothing
-			return '';
-		}
+                return '(' . \Akky\Money\UsdFormatter::format($usd, $locale) . ')';
+            }
+        } catch (\RuntimeException $ex) {
+            // for case rate info unavailable, do nothing
+            return '';
+        }
     }
 
     /**
@@ -271,9 +271,9 @@ class AutoCurrencyConverter
     public function callbackRenderStatus()
     {
         if (extension_loaded('intl')) {
-            echo '<p>' . __( 'Your PHP is using intl extension. Auto conversion runs much faster.', self::PLUGIN_KEY ) . '</p>';
+            echo '<p class="notice notice-success">' . __( 'Your PHP is using intl extension. Auto conversion runs much faster.', self::PLUGIN_KEY ) . '</p>';
         } else {
-            echo '<p>' . __( 'Your PHP does not have intl extension, so this plugin is using PHP-based slower formatter, also only works well in English. If possible, I receommend to turn on php_intl extension.', self::PLUGIN_KEY ) . '</p>';
+            echo '<p class="notice notice-warning">' . __( 'Your PHP does not have intl extension, so this plugin is using PHP-based slower formatter, also only works well in English. If possible, I receommend to turn on php_intl extension.', self::PLUGIN_KEY ) . '</p>';
         }
     }
 
