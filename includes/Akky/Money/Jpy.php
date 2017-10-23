@@ -35,9 +35,9 @@ class Jpy extends Currency
      * @assert ("この272万円($34,000)を支払うには") == 'この272万円(2720000)($34,000)を支払うには'
      */
     public function apply($text) {
-		if (function_exists('mb_convert_kana')) {
-			$text = mb_convert_kana($text, 'n', 'UTF-8');
-		}
+        if (function_exists('mb_convert_kana')) {
+            $text = mb_convert_kana($text, 'n', 'UTF-8');
+        }
 
         $count = 0;
         $results = preg_replace_callback(
@@ -111,30 +111,30 @@ class Jpy extends Currency
             switch((string)$key) {
                 // cast for sure as the array may have other key/values
             case 'trillion':
-                $amount += $value * 1000 * 1000 * 1000 * 1000;
+                $amount += (int)$value * 1000 * 1000 * 1000 * 1000;
                 break;
             case 'billion':
-                $amount += $value * 1000 * 1000 * 1000;
+                $amount += (int)$value * 1000 * 1000 * 1000;
                 break;
             case 'million':
-                $amount += $value * 1000 * 1000;
+                $amount += (int)$value * 1000 * 1000;
                 break;
             case 'thousand':
-                $amount += $value * 1000;
+                $amount += (int)$value * 1000;
                 break;
             case 'chou':
-                $amount += $value * 10000 * 10000 * 10000;
+                $amount += (int)$value * 10000 * 10000 * 10000;
                 break;
             case 'oku':
-                $amount += $value * 10000 * 10000;
+                $amount += (int)$value * 10000 * 10000;
                 break;
             case 'man':
-                $amount += $value * 10000;
+                $amount += (int)$value * 10000;
                 break;
             case 'yen1':
             case 'yen2':
             case 'yen3':
-                $amount += $value;
+                $amount += (int)$value;
                 break;
             default:
             }
