@@ -73,6 +73,11 @@ class MaterializedPathORMTest extends BaseTestCaseORM
         $this->assertEquals(3, $category3->getLevel());
         $this->assertEquals(1, $category4->getLevel());
 
+        $this->assertEquals('1-4', $category->getTreeRootValue());
+        $this->assertEquals('1-4', $category2->getTreeRootValue());
+        $this->assertEquals('1-4', $category3->getTreeRootValue());
+        $this->assertEquals('4-1', $category4->getTreeRootValue());
+
         // Update
         $category2->setParent(null);
 
@@ -91,6 +96,11 @@ class MaterializedPathORMTest extends BaseTestCaseORM
         $this->assertEquals(2, $category3->getLevel());
         $this->assertEquals(1, $category4->getLevel());
 
+        $this->assertEquals('1-4', $category->getTreeRootValue());
+        $this->assertEquals('2-3', $category2->getTreeRootValue());
+        $this->assertEquals('2-3', $category3->getTreeRootValue());
+        $this->assertEquals('4-1', $category4->getTreeRootValue());
+
         // Remove
         $this->em->remove($category);
         $this->em->remove($category2);
@@ -103,6 +113,7 @@ class MaterializedPathORMTest extends BaseTestCaseORM
         $this->assertCount(1, $result);
         $this->assertEquals('4', $firstResult->getTitle());
         $this->assertEquals(1, $firstResult->getLevel());
+        $this->assertEquals('4-1', $firstResult->getTreeRootValue());
     }
 
     /**
