@@ -19,10 +19,14 @@ class UsdFormatter
         case 'en':
         default:
             if ($locale = 'en') { $locale = 'en-US'; }
-            $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
-            // 'en' can not omit decimal places even with this, so set 'en-US'
-            $numberFormatter->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0); 
-            return $numberFormatter->formatCurrency($value, 'USD');
+            if (class_exists('\NumberFormatter')) {
+                $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
+                // 'en' can not omit decimal places even with this, so set 'en-US'
+                $numberFormatter->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0); 
+                return $numberFormatter->formatCurrency($value, 'USD');
+            } else {
+                return $value;
+            }
         }
     }
     /**

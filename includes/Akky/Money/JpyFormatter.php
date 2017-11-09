@@ -12,15 +12,19 @@ class JpyFormatter
      * @assert ('1234567890', 'en') == '¥1,234,567,890'
      */
     public static function format($value, $locale = "en") {
-		switch($locale) {
-		case 'ja':
-			return self::formatInJapanese($value);
-			break;
-		case 'en':
-		default:
-	        $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
-	        return $numberFormatter->formatCurrency($value, 'JPY');
-		}
+        switch($locale) {
+        case 'ja':
+            return self::formatInJapanese($value);
+            break;
+        case 'en':
+        default:
+            if (class_exists('\NumberFormatter')) {
+                $numberFormatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
+                return $numberFormatter->formatCurrency($value, 'JPY');
+            } else {
+                return $value;
+            }
+        }
     }
     /**
      * convert number expressions to value
