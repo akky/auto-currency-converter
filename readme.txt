@@ -1,6 +1,6 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.1.5
+Version 1.1.6
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
@@ -56,6 +56,9 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.6 =
+* added translation text-domain info in plugin header
 
 = 1.1.5 =
 * remove php-intl polyfil, which supports better localized currency notations even without php_intl extension. As the polyfil library is too large to deliver and useless if the user set up php_intl extension correctly.
