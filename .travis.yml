@@ -1,0 +1,35 @@
+sudo: false
+
+language: php
+
+notifications:
+  on_success: never
+  on_failure: change
+
+php:
+    - 5.6
+    - 7.0
+
+before_script:
+#    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+    - composer install
+
+#script:
+#    - vendor/bin/phpunit
+
+after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash
+
+env:
+  matrix:
+    - WP_VERSION=latest WP_MULTISITE=0
+    - WP_VERSION=nightly WP_MULTISITE=0
+
+  global:
+    - SVN_REPO: https://plugins.svn.wordpress.org/auto-currency-converter/
+    - GH_REF: https://github.com/akky/auto-currency-converter.git
+    - secure: "lk9qOZFw2vab8Y6q6doJHOfG3la2B3HIhoVr7lObLOG27zSyEIhgl4B4vnGL4IWv72q0Nbh9QybheUIsvLd8X8MdRLrPVNe/RLRlHUNHFOhrT0OYk+jznvl7gPMPJhmeXdKbpFNrO0pxOM82KIHVzjBf2NzjfsLrM6sRFTnJMrGG1yXjT8wbiZ9ftXTF1u/bBjGOK+sSqCfg2TWhdCz0CfZYjeXJEsn8AMLk9Gge5ZfvCBICPSRtK53cmAOaeetfcB+ddVxj207EWHKEJkzlPlODovouGZlHkTs4Cnu//seW/bgk7euRYYscBFEFQEZUxS+dpY7QDuVPPhhx170B6endNrn6DbCNGJZ/zXuzeqO3P0Fxsa4wxC9kkSz6tWF8py6T25iKDZOjpBALT0kabdhvauQK2mIKJTn2wniQq18edtOeFzl+W712GXfGQWFCGaNvCSQfBw0rQ1Gj04oh51gcTLHmTY4rZx9OthjsM7MCvOXa4bi+qmZvP44RMgGkL6Mt9XcUL3RODds7NnkrA11wJJoDz0YhrbmEJDp2SP6IASxxJ5mwtr8AizwGchFYTLYK4qwtIyaZYBAu7NUgQSSwrCfYrzHy1Yc9ZADPNoVGvjFGrBVWjHg/Ie7F/Hl7xuPSh3CDKtJTgAtkGjRElhmtabLCuqBXUh88p3YxPH4="
+
+matrix:
+  include:
+    - php: 5.6
+      env: WP_VERSION=latest WP_MULTISITE=0 WP_PULUGIN_DEPLOY=1
