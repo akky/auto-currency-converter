@@ -11,7 +11,8 @@ php:
     - 7.0
 
 before_install:
-  - sudo apt-get install php5-intl
+  - if [[ ${TRAVIS_PHP_VERSION:0:1} == "5" ]]; sudo apt-get install php5-intl; fi
+  - if [[ ${TRAVIS_PHP_VERSION:0:1} == "7" ]]; sudo apt-get install php7.0-intl; fi
 
 before_script:
 #    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
