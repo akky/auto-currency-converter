@@ -5,7 +5,7 @@
   Plugin URI: https://wordpress.org/plugins/auto-currency-converter/
   Description: Adds a price in the second currency automatically
   Author: Akky AKIMOTO
-  Text Domain: auto-currency-converter
+  Text Domain: auto_currency_converter
   Domain Path: /languages
   Version: 1.1.7
   Author URI: http://akimoto.jp/
