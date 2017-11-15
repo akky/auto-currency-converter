@@ -2,7 +2,7 @@
 Contributors: akky
 Version 1.1.7
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
-Home: http://wordpress.org/extend/plugins/auto-currency-converter
+Home: https://wordpress.org/plugins/auto-currency-converter/
 Support: @akky
 Requires at least: 3.3.0
 Tested up to: 4.8.3

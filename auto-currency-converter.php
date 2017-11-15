@@ -2,7 +2,7 @@
 
 /*
   Plugin Name: Auto Currency Converter
-  Plugin URI: http://wordpress.org/extend/plugins/auto-currency-converter
+  Plugin URI: https://wordpress.org/plugins/auto-currency-converter/
   Description: Adds a price in the second currency automatically
   Author: Akky AKIMOTO
   Text Domain: auto-currency-converter
