@@ -1,6 +1,6 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.1.6
+Version 1.1.7
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
