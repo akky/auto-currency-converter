@@ -32,11 +32,11 @@ class ExchangeRate {
      */
     public function getRate($from, $to) {
         $rate = $this->doGetRate($from, $to);
-		return $rate;
+        return $rate;
     }
 
     /**
-     * get exchange rates from Yahoo!
+     * get exchange rates from fixer.io
      *
      * @assert("USD", "JPY") > 50
      * @assert("USD", "JPY") < 130
@@ -45,13 +45,13 @@ class ExchangeRate {
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22{$from}{$to}%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+        $url = "https://api.fixer.io/latest?base=USD&symbols=JPY";
         $json = file_get_contents($url);
         if (!$json) {
             return false;
         }
         $decoded = json_decode($json, true);
-        $rate = $decoded['query']['results']['rate']['Rate'];
+        $rate = $decoded['rates']['JPY'];
 
         $this->_cached[$from][$to] = $rate;
         return $rate;

@@ -50,7 +50,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
     }
 
     /**
-     * get exchange rates from Yahoo!
+     * get exchange rates from fixer.io
      *  override to use WordPress's remote fetch function
      *  to let it work even if allow_url_fopen === false
      *
@@ -61,7 +61,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22{$from}{$to}%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+        $url = "https://api.fixer.io/latest?base=USD&symbols=JPY";
         $response = wp_remote_get($url);
         if (is_wp_error($response)
             || ($response['response']['code'] !== 200)) {
@@ -69,7 +69,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
         }
         $json = $response['body'];
         $decoded = json_decode($json, true);
-        $rate = $decoded['query']['results']['rate']['Rate'];
+        $rate = $decoded['rates']['JPY'];
 
         $this->_cached[$from][$to] = $rate;
         return $rate;

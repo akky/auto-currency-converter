@@ -58,6 +58,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.1.6 =
+* changed to call fixer.io API, as Yahoo finance API had stopped around November 1st
 * added translation text-domain info in plugin header
 
 = 1.1.5 =
