@@ -7,7 +7,7 @@
   Author: Akky AKIMOTO
   Text Domain: auto-currency-converter
   Domain Path: /languages
-  Version: 1.1.6
+  Version: 1.1.7
   Author URI: http://akimoto.jp/
   License: GPL2
  */

@@ -21,8 +21,8 @@ class AutoCurrencyConverter
     {
         // Poedit can not pick up resource text in constant
         //   so these are needed to be somewhere in code
-        __( 'Auto Currency Converter' , self::PLUGIN_KEY );
-        __( 'Auto Currency Converter Setting' , self::PLUGIN_KEY );
+        __( 'Auto Currency Converter' , 'auto_currency_converter' );
+        __( 'Auto Currency Converter Setting' , 'auto_currency_converter' );
     }
 
     public function __construct()
@@ -132,8 +132,8 @@ class AutoCurrencyConverter
     public function registerMenu()
     {
         add_options_page(
-            __( self::DISPLAY_NAME . ' Setting', self::PLUGIN_KEY ),
-            __( self::DISPLAY_NAME, self::PLUGIN_KEY ),
+            __( self::DISPLAY_NAME . ' Setting', 'auto_currency_converter' ),
+            __( self::DISPLAY_NAME, 'auto_currency_converter' ),
             'administrator',
             self::PLUGIN_KEY,
             array( &$this, 'callbackRenderForm')
@@ -144,7 +144,7 @@ class AutoCurrencyConverter
     {
         echo '<div class="wrap">';
         echo '<div class="icon32" id="icon-options-general"></div>';
-        echo '<h2>' . __( self::DISPLAY_NAME . ' Setting', self::PLUGIN_KEY ), '</h2>';
+        echo '<h2>' . __( self::DISPLAY_NAME . ' Setting', 'auto_currency_converter' ), '</h2>';
         echo '<div class="' . self::PLUGIN_KEY . '">';
         echo '<form action="options.php" method="post">';
         settings_fields( self::PLUGIN_KEY );
@@ -192,7 +192,7 @@ class AutoCurrencyConverter
         $sectionName = 'acc_status';
         add_settings_section(
             $sectionName,
-            __( 'Status', self::PLUGIN_KEY ),
+            __( 'Status', 'auto_currency_converter' ),
             array( &$this, 'callbackRenderStatus' ),
             self::PLUGIN_KEY
         );
@@ -203,7 +203,7 @@ class AutoCurrencyConverter
         $sectionName = 'acc_usage';
         add_settings_section(
             $sectionName,
-            __( 'Usage', self::PLUGIN_KEY ),
+            __( 'Usage', 'auto_currency_converter' ),
             array( &$this, 'callbackRenderUsage' ),
             self::PLUGIN_KEY
         );
@@ -215,14 +215,14 @@ class AutoCurrencyConverter
 
         add_settings_section(
             $sectionName,
-            __( 'Date to begin conversion', self::PLUGIN_KEY ),
+            __( 'Date to begin conversion', 'auto_currency_converter' ),
             array( &$this, 'callbackRenderBeginDate' ),
             self::PLUGIN_KEY
         );
 
         add_settings_field(
             'eia_affiliate_jp',
-            __( 'starting date from where the conversion works', self::PLUGIN_KEY ),
+            __( 'starting date from where the conversion works', 'auto_currency_converter' ),
             array( &$this, 'callbackRenderBeginDateField' ),
             self::PLUGIN_KEY,
             $sectionName
@@ -254,7 +254,7 @@ class AutoCurrencyConverter
             add_settings_error(
                 self::PLUGIN_KEY,
                 'invalid_begin_date',
-                __( 'The date is not a proper format.', self::PLUGIN_KEY ),
+                __( 'The date is not a proper format.', 'auto_currency_converter' ),
                 'error'
             );
 
@@ -271,23 +271,23 @@ class AutoCurrencyConverter
     public function callbackRenderStatus()
     {
         if (extension_loaded('intl')) {
-            echo '<p class="notice notice-success">' . __( 'Your PHP is using intl extension. Auto conversion runs much faster.', self::PLUGIN_KEY ) . '</p>';
+            echo '<p class="notice notice-success">' . __( 'Your PHP is using intl extension. Auto conversion runs much faster.', 'auto_currency_converter' ) . '</p>';
         } else {
-            echo '<p class="notice notice-warning">' . __( 'Your PHP does not have intl extension, so this plugin is using PHP-based slower formatter, also only works well in English. If possible, I receommend to turn on php_intl extension.', self::PLUGIN_KEY ) . '</p>';
+            echo '<p class="notice notice-warning">' . __( 'Your PHP does not have intl extension, so this plugin is using PHP-based slower formatter, also only works well in English. If possible, I receommend to turn on php_intl extension.', 'auto_currency_converter' ) . '</p>';
         }
     }
 
     public function callbackRenderUsage()
     {
-        echo '<p>' . __( 'Add exchanged ammount after the money notations in posts/pages.', self::PLUGIN_KEY ) . '</p>';
-        echo '<blockquote>' . __( 'example: <br />"$199,666"<br /> in a post will be changed to <br />"$199,666(￥15,973,280)"<br /><br />The real ammount will be different as the plugin to use the latest exchange rate."', self::PLUGIN_KEY ) . '</blockquote>';
-        echo '<p>' . __( 'At now, only US dollars and Japanese yen are supported.', self::PLUGIN_KEY ) . '</p>';
-        echo '<p>' . __( 'tag acc_disable suppress this plugin to convert only on that post.', self::PLUGIN_KEY ) . '</p>';
+        echo '<p>' . __( 'Add exchanged ammount after the money notations in posts/pages.', 'auto_currency_converter' ) . '</p>';
+        echo '<blockquote>' . __( 'example: <br />"$199,666"<br /> in a post will be changed to <br />"$199,666(￥15,973,280)"<br /><br />The real ammount will be different as the plugin to use the latest exchange rate."', 'auto_currency_converter' ) . '</blockquote>';
+        echo '<p>' . __( 'At now, only US dollars and Japanese yen are supported.', 'auto_currency_converter' ) . '</p>';
+        echo '<p>' . __( 'tag acc_disable suppress this plugin to convert only on that post.', 'auto_currency_converter' ) . '</p>';
     }
 
     public function callbackRenderBeginDate()
     {
-        echo '<p>' . __( 'Set a date after which you make the conversion effective. Only on the pages/posts which modified after the date will have converted money info, so your past posts which you manually added similar info will not be affected.', self::PLUGIN_KEY ) . '</p>';
+        echo '<p>' . __( 'Set a date after which you make the conversion effective. Only on the pages/posts which modified after the date will have converted money info, so your past posts which you manually added similar info will not be affected.', 'auto_currency_converter' ) . '</p>';
     }
 
     public function callbackRenderBeginDateField()

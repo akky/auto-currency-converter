@@ -19,7 +19,7 @@ before_script:
     - composer install
 
 script:
-#    - vendor/bin/phpunit
+    - vendor/bin/phpunit
     - echo "dummy to pass phpunit. as travis runs phpunit by default"
 
 after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash

@@ -12,7 +12,7 @@
          bootstrap="tests/phpunit/bootstrap.php"
 >
     <php>
-
+      <const name="INSIDE_PHPUNIT_TEST" value="true"/>
     </php>
     <testsuites>
         <testsuite name="Akky Money Test Suite">

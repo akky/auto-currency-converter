@@ -16,7 +16,7 @@ class Jpy extends Currency
      *
      * @assert ("abcde") == "abcde"
      * @assert ("1 million yen") == '1 million yen(1000000)'
-     * @assert ("23.4 billion Yen") == '23.4 billion Yen(23400000000)'
+     * @assert ("23.4 billion Yen") == '23.4 billion Yen(23000000000)'
      * @assert ("1 yen") == '1 yen(1)'
      * @assert ("\\15973280") == '\\15973280(15973280)'
      * @assert ("3194万6560円") == '3194万6560円(31946560)'
@@ -54,11 +54,11 @@ class Jpy extends Currency
 
             // pattern with unit(s) in English
             .'(?<firstsign2>\\\\)?'
-            .'(?:(?P<trillion>\d[\d\,]{0,2}(?:\.\d+)?)\strillion)?'
-            .'(?:(?P<billion>\d[\d\,]{0,2}(?:\.\d+)?)\sbillion)?'
-            .'(?:(?P<million>\d[\d]{0,2}(?:\.\d+)?)\smillion)?'
-            .'(?:(?P<thousand>\d[\d]{0,2}(?:\.\d+)?)\sthousand)?'
-            .'(?<yen2>\d[\d]{0,2}(?:\.\d+)?)?'
+            .'(?:(?P<trillion>\d[\d\,]{0,3}(?:\.\d+)?)\strillion)?'
+            .'(?:(?P<billion>\d[\d\,]{0,3}(?:\.\d+)?)\sbillion)?'
+            .'(?:(?P<million>\d[\d]{0,3}(?:\.\d+)?)\smillion)?'
+            .'(?:(?P<thousand>\d[\d]{0,3}(?:\.\d+)?)\sthousand)?'
+            .'(?<yen2>\d[\d]{0,3}(?:\.\d+)?)?'
             // if prefix $ did not exist, then check suffix $
             .'(?(firstsign2)|(?:\sJapanese)?\syens?)'
 
@@ -99,8 +99,8 @@ class Jpy extends Currency
      * @assert (array("chou"=>1,"oku"=>2,"man"=>3,"yen3"=>4)) == "1000200030004"
      * @assert (array("chou"=>12,"oku"=>3000)) == "12300000000000"
      * @assert (array("chou"=>12,"man"=>500)) == "12000005000000"
-     * @assert (array("yen3"=>"6.99")) == "6.99"
-     * @assert (array("man"=>2.7)) == "27000"
+     * @assert (array("yen3"=>"6.99")) == "6"
+     * @assert (array("man"=>2.7)) == "20000"
      * @assert (array("oku"=>168)) == "16800000000"
      */
     public function normalize($numbers) {

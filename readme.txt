@@ -57,6 +57,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.1.7 =
+* fixed translation code not use constant, to enable [user translation](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
+* fixed a bug that $2000 was recognized as $200 and 0, when 4 digits written after dollar/yen mark.
+
 = 1.1.6 =
 * changed to call fixer.io API, as Yahoo finance API had stopped around November 1st
 * added translation text-domain info in plugin header
