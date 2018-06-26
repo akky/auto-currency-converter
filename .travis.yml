@@ -21,7 +21,7 @@ before_script:
 script:
     - echo "dummy to pass phpunit. as my test code does not work with phpunit on PHP . Travis runs phpunit by default so put this dummy for the time being. Maybe I will fix the test code for PHP 7 and stop testing on PHP 5 soon."
 
-after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash
+after_success: curl -L https://raw.githubusercontent.com/akky/travis2wpplugin/master/deploy.sh | bash
 
 env:
   matrix:
