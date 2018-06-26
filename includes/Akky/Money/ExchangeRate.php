@@ -45,12 +45,18 @@ class ExchangeRate {
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "https://api.fixer.io/latest?base=USD&symbols=JPY";
+        $url = "https://ratesapi.io/api/latest?base=USD&symbols=JPY";
         // local phpunit test may fail by not setting up cert properly. pass it only when test
         $options = [];
         if (defined('INSIDE_PHPUNIT_TEST')) {
           $options['ssl']['verify_peer']=false;
           $options['ssl']['verify_peer_name']=false;
+        }
+        if (array_key_exists('HTTP_PROXY', $_SERVER)) {
+            $options['http'] = array(
+                "proxy" => $_SERVER['HTTP_PROXY'],
+                'request_fulluri' => true,
+            );
         }
         $json = file_get_contents($url, false, stream_context_create($options));
         if (!$json) {

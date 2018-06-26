@@ -50,7 +50,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
     }
 
     /**
-     * get exchange rates from fixer.io
+     * get exchange rates from ratesapi.io
      *  override to use WordPress's remote fetch function
      *  to let it work even if allow_url_fopen === false
      *
@@ -61,7 +61,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "https://api.fixer.io/latest?base=USD&symbols=JPY";
+        $url = "https://ratesapi.io/api/latest?base=USD&symbols=JPY";
         $response = wp_remote_get($url);
         if (is_wp_error($response)
             || ($response['response']['code'] !== 200)) {

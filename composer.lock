@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c5d7f17bc28205e9f6c760f767c8da2",
-    "content-hash": "e89628d98af83343dbf33400615bec08",
+    "hash": "c7a2835f0d5d0f3049f220a51a9d938b",
+    "content-hash": "56543fa6a4f92afe195d803ed0639f97",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -555,16 +555,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.x-dev",
+            "version": "v2.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "49359222044865c8a1da9b80d4b729f147728bb0"
+                "reference": "1e400fbd05b7e5f912f55fe95805450f7d3bed60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/49359222044865c8a1da9b80d4b729f147728bb0",
-                "reference": "49359222044865c8a1da9b80d4b729f147728bb0",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/1e400fbd05b7e5f912f55fe95805450f7d3bed60",
+                "reference": "1e400fbd05b7e5f912f55fe95805450f7d3bed60",
                 "shasum": ""
             },
             "require": {
@@ -572,12 +572,15 @@
                 "doctrine/common": "~2.4",
                 "php": ">=5.3.2"
             },
+            "conflict": {
+                "doctrine/annotations": "<1.2"
+            },
             "require-dev": {
                 "doctrine/common": ">=2.5.0",
                 "doctrine/mongodb-odm": ">=1.0.2",
                 "doctrine/orm": ">=2.5.0",
-                "phpunit/phpunit": "*",
-                "symfony/yaml": "~2.6|~3.0"
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.5",
+                "symfony/yaml": "~2.6|~3.0|~4.0"
             },
             "suggest": {
                 "doctrine/mongodb-odm": "to use the extensions with the MongoDB ODM",
@@ -590,8 +593,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Gedmo\\": "lib/"
+                "psr-4": {
+                    "Gedmo\\": "lib/Gedmo"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -629,17 +632,18 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2017-10-12 12:01:06"
+            "time": "2018-05-08 12:28:40"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "gedmo/doctrine-extensions": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "5.6"
+    }
 }

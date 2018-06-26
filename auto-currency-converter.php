@@ -7,16 +7,16 @@
   Author: Akky AKIMOTO
   Text Domain: auto_currency_converter
   Domain Path: /languages
-  Version: 1.1.7
-  Author URI: http://akimoto.jp/
+  Version: 1.1.8
+  Author URI: http://akimoto.jp/blog/
   License: GPL2
  */
 
 add_action('admin_notices', 'acc_check_environment');
 function acc_check_environment() {
-    if (version_compare( PHP_VERSION, '5.3', '<' )) {
+    if (version_compare( PHP_VERSION, '5.4', '<' )) {
       echo '<div class="error">';
-      echo '<p>Automatic Currency Converter requires PHP verion ' . '5.3' . ' or newer';
+      echo '<p>Automatic Currency Converter requires PHP verion ' . '5.4' . ' or newer';
       echo ', but yours is ' . PHP_VERSION . '.</p>';
       echo '<p>The plugin has been deactivated.</p>';
       echo '</div>';
@@ -25,9 +25,9 @@ function acc_check_environment() {
       exit();
     }
     global $wp_version;
-    if (version_compare( $wp_version, '3.3', '<' )) {
+    if (version_compare( $wp_version, '4.0', '<' )) {
       echo '<div class="error">';
-      echo '<p>Automatic Currency Converter requires WordPress verion ' . '3.3' . ' or newer';
+      echo '<p>Automatic Currency Converter requires WordPress verion ' . '4.0' . ' or newer';
       echo ', but yours is ' . $wp_version . '.</p>';
       echo '<p>The plugin has been deactivated.</p>';
       echo '</div>';

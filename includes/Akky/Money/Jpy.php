@@ -111,25 +111,25 @@ class Jpy extends Currency
             switch((string)$key) {
                 // cast for sure as the array may have other key/values
             case 'trillion':
-                $amount += (int)$value * 1000 * 1000 * 1000 * 1000;
+                $amount += (float)$value * 1000 * 1000 * 1000 * 1000;
                 break;
             case 'billion':
-                $amount += (int)$value * 1000 * 1000 * 1000;
+                $amount += (float)$value * 1000 * 1000 * 1000;
                 break;
             case 'million':
-                $amount += (int)$value * 1000 * 1000;
+                $amount += (float)$value * 1000 * 1000;
                 break;
             case 'thousand':
-                $amount += (int)$value * 1000;
+                $amount += (float)$value * 1000;
                 break;
             case 'chou':
-                $amount += (int)$value * 10000 * 10000 * 10000;
+                $amount += (float)$value * 10000 * 10000 * 10000;
                 break;
             case 'oku':
-                $amount += (int)$value * 10000 * 10000;
+                $amount += (float)$value * 10000 * 10000;
                 break;
             case 'man':
-                $amount += (int)$value * 10000;
+                $amount += (float)$value * 10000;
                 break;
             case 'yen1':
             case 'yen2':
