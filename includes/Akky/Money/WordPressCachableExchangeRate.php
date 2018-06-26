@@ -61,7 +61,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "https://ratesapi.io/api/latest?base=USD&symbols=JPY";
+        $url = "https://ratesapi.io/api/latest?base=$from&symbols=$to";
         $response = wp_remote_get($url);
         if (is_wp_error($response)
             || ($response['response']['code'] !== 200)) {
@@ -69,7 +69,7 @@ class WordPressCachableExchangeRate extends ExchangeRate
         }
         $json = $response['body'];
         $decoded = json_decode($json, true);
-        $rate = $decoded['rates']['JPY'];
+        $rate = $decoded['rates'][strtoupper($to)];
 
         $this->_cached[$from][$to] = $rate;
         return $rate;

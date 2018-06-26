@@ -45,7 +45,7 @@ class ExchangeRate {
         if (isset($this->_cached[$from][$to])) {
             return $this->_cached[$from][$to];
         }
-        $url = "https://ratesapi.io/api/latest?base=USD&symbols=JPY";
+        $url = "https://ratesapi.io/api/latest?base=$from&symbols=$to";
         // local phpunit test may fail by not setting up cert properly. pass it only when test
         $options = [];
         if (defined('INSIDE_PHPUNIT_TEST')) {
@@ -63,7 +63,7 @@ class ExchangeRate {
             return false;
         }
         $decoded = json_decode($json, true);
-        $rate = $decoded['rates']['JPY'];
+        $rate = $decoded['rates'][strtoupper($to)];
 
         $this->_cached[$from][$to] = $rate;
         return $rate;
