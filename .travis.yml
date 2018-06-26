@@ -26,7 +26,6 @@ after_success: curl -L https://raw.githubusercontent.com/akky/travis2wpplugin/ma
 env:
   matrix:
     - WP_VERSION=latest WP_MULTISITE=0
-
   global:
     - SVN_REPO: https://plugins.svn.wordpress.org/auto-currency-converter/
     - GH_REF: https://github.com/akky/auto-currency-converter.git
