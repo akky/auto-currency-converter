@@ -36,7 +36,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply()
     {
         $this->assertEquals(
-            "abcde",
+            "abcde"
+,
             $this->object->apply("abcde")
         );
     }
@@ -49,7 +50,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply2()
     {
         $this->assertEquals(
-            '1 million yen(1000000)',
+            '1 million yen(1000000)'
+,
             $this->object->apply("1 million yen")
         );
     }
@@ -62,7 +64,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply3()
     {
         $this->assertEquals(
-            '23.4 billion Yen(23000000000)',
+            '23.4 billion Yen(23400000000)'
+,
             $this->object->apply("23.4 billion Yen")
         );
     }
@@ -75,7 +78,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply4()
     {
         $this->assertEquals(
-            '1 yen(1)',
+            '1 yen(1)'
+,
             $this->object->apply("1 yen")
         );
     }
@@ -88,7 +92,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply5()
     {
         $this->assertEquals(
-            '\\15973280(15973280)',
+            '\\15973280(15973280)'
+,
             $this->object->apply("\\15973280")
         );
     }
@@ -101,7 +106,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply6()
     {
         $this->assertEquals(
-            '3194万6560円(31946560)',
+            '3194万6560円(31946560)'
+,
             $this->object->apply("3194万6560円")
         );
     }
@@ -114,7 +120,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply7()
     {
         $this->assertEquals(
-            '15920円(15920)',
+            '15920円(15920)'
+,
             $this->object->apply("15920円")
         );
     }
@@ -127,7 +134,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply8()
     {
         $this->assertEquals(
-            '半円',
+            '半円'
+,
             $this->object->apply("半円")
         );
     }
@@ -140,7 +148,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply9()
     {
         $this->assertEquals(
-            '円ドル',
+            '円ドル'
+,
             $this->object->apply("円ドル")
         );
     }
@@ -153,7 +162,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply10()
     {
         $this->assertEquals(
-            '559円(559)',
+            '559円(559)'
+,
             $this->object->apply("559円")
         );
     }
@@ -166,7 +176,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply11()
     {
         $this->assertEquals(
-            '3万1920円(31920)',
+            '3万1920円(31920)'
+,
             $this->object->apply("3万1920円")
         );
     }
@@ -179,7 +190,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply12()
     {
         $this->assertEquals(
-            '3059万2000円(30592000)',
+            '3059万2000円(30592000)'
+,
             $this->object->apply("3059万2000円")
         );
     }
@@ -192,7 +204,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply13()
     {
         $this->assertEquals(
-            '3059万2000円(30592000)',
+            '3059万2000円(30592000)'
+,
             $this->object->apply("３０５９万２０００円")
         );
     }
@@ -205,7 +218,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply14()
     {
         $this->assertEquals(
-            '5兆9840億48万円(5984000480000)',
+            '5兆9840億48万円(5984000480000)'
+,
             $this->object->apply("5兆9840億48万円")
         );
     }
@@ -218,7 +232,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply15()
     {
         $this->assertEquals(
-            '987億6543万1200円(98765431200)',
+            '987億6543万1200円(98765431200)'
+,
             $this->object->apply("987億6543万1200円")
         );
     }
@@ -231,7 +246,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply16()
     {
         $this->assertEquals(
-            '548億円(54800000000)',
+            '548億円(54800000000)'
+,
             $this->object->apply("548億円")
         );
     }
@@ -244,7 +260,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply17()
     {
         $this->assertEquals(
-            'この272万円(2720000)を支払うには',
+            'この272万円(2720000)を支払うには'
+,
             $this->object->apply("この272万円を支払うには")
         );
     }
@@ -257,7 +274,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply18()
     {
         $this->assertEquals(
-            '経済効果が、最大で約6400億円(640000000000)になると分析した',
+            '経済効果が、最大で約6400億円(640000000000)になると分析した'
+,
             $this->object->apply("経済効果が、最大で約6400億円になると分析した")
         );
     }
@@ -270,7 +288,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testApply19()
     {
         $this->assertEquals(
-            'この272万円(2720000)($34,000)を支払うには',
+            'この272万円(2720000)($34,000)を支払うには'
+,
             $this->object->apply("この272万円($34,000)を支払うには")
         );
     }
@@ -295,7 +314,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize()
     {
         $this->assertEquals(
-            "12345",
+            "12345"
+,
             $this->object->normalize(array("yen1"=>"12,345"))
         );
     }
@@ -308,7 +328,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize2()
     {
         $this->assertEquals(
-            "3000000000000",
+            "3000000000000"
+,
             $this->object->normalize(array("trillion"=>"3"))
         );
     }
@@ -321,7 +342,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize3()
     {
         $this->assertEquals(
-            "1030000600",
+            "1030000600"
+,
             $this->object->normalize(array("billion"=>"1","million"=>30,"yen2"=>600))
         );
     }
@@ -334,7 +356,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize4()
     {
         $this->assertEquals(
-            "1000000",
+            "1000000"
+,
             $this->object->normalize(array("million"=>1))
         );
     }
@@ -347,7 +370,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize5()
     {
         $this->assertEquals(
-            "12500",
+            "12500"
+,
             $this->object->normalize(array("thousand"=>12,"yen2"=>500))
         );
     }
@@ -360,7 +384,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize6()
     {
         $this->assertEquals(
-            "4860000000",
+            "4860000000"
+,
             $this->object->normalize(array("chou"=>"","oku"=>48,"man"=>6000))
         );
     }
@@ -373,7 +398,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize7()
     {
         $this->assertEquals(
-            "1000200030004",
+            "1000200030004"
+,
             $this->object->normalize(array("chou"=>1,"oku"=>2,"man"=>3,"yen3"=>4))
         );
     }
@@ -386,7 +412,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize8()
     {
         $this->assertEquals(
-            "12300000000000",
+            "12300000000000"
+,
             $this->object->normalize(array("chou"=>12,"oku"=>3000))
         );
     }
@@ -399,7 +426,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize9()
     {
         $this->assertEquals(
-            "12000005000000",
+            "12000005000000"
+,
             $this->object->normalize(array("chou"=>12,"man"=>500))
         );
     }
@@ -412,7 +440,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize10()
     {
         $this->assertEquals(
-            "6",
+            "6"
+,
             $this->object->normalize(array("yen3"=>"6.99"))
         );
     }
@@ -425,7 +454,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize11()
     {
         $this->assertEquals(
-            "20000",
+            "27000"
+,
             $this->object->normalize(array("man"=>2.7))
         );
     }
@@ -438,7 +468,8 @@ class JpyTest extends \PHPUnit_Framework_TestCase
     public function testNormalize12()
     {
         $this->assertEquals(
-            "16800000000",
+            "16800000000"
+,
             $this->object->normalize(array("oku"=>168))
         );
     }

@@ -58,14 +58,16 @@ class ExchangeRate {
                 'request_fulluri' => true,
             );
         }
-        $json = file_get_contents($url, false, stream_context_create($options));
-        if (!$json) {
-            return false;
-        }
-        $decoded = json_decode($json, true);
-        $rate = $decoded['rates'][strtoupper($to)];
+        $json = @file_get_contents($url, false, stream_context_create($options));
+        if ($json === false) {
+            // dummy rate when API is down or unavailable
+            return 110;
+        } else {
+            $decoded = json_decode($json, true);
+            $rate = $decoded['rates'][strtoupper($to)];
 
-        $this->_cached[$from][$to] = $rate;
-        return $rate;
+            $this->_cached[$from][$to] = $rate;
+            return $rate;
+        }
     }
 }

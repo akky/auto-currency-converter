@@ -36,7 +36,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply()
     {
         $this->assertEquals(
-            "abcde",
+            "abcde"
+,
             $this->object->apply("abcde")
         );
     }
@@ -49,7 +50,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply2()
     {
         $this->assertEquals(
-            '1 million dollars(1000000)',
+            '1 million dollars(1000000)'
+,
             $this->object->apply("1 million dollars")
         );
     }
@@ -62,7 +64,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply3()
     {
         $this->assertEquals(
-            '23.4 billion Dollars(23000000000)',
+            '23.4 billion Dollars(23400000000)'
+,
             $this->object->apply("23.4 billion Dollars")
         );
     }
@@ -75,7 +78,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply4()
     {
         $this->assertEquals(
-            '350 US dollars(350)',
+            '350 US dollars(350)'
+,
             $this->object->apply("350 US dollars")
         );
     }
@@ -88,7 +92,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply5()
     {
         $this->assertEquals(
-            '1 dollar(1)',
+            '1 dollar(1)'
+,
             $this->object->apply("1 dollar")
         );
     }
@@ -101,7 +106,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply6()
     {
         $this->assertEquals(
-            '$7.50(7)',
+            '$7.50(7)'
+,
             $this->object->apply("$7.50")
         );
     }
@@ -114,7 +120,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply7()
     {
         $this->assertEquals(
-            '$199,666(199666)',
+            '$199,666(199666)'
+,
             $this->object->apply("$199,666")
         );
     }
@@ -127,7 +134,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply8()
     {
         $this->assertEquals(
-            '$2,000,000.12(2000000)',
+            '$2,000,000.12(2000000)'
+,
             $this->object->apply("$2,000,000.12")
         );
     }
@@ -140,7 +148,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply9()
     {
         $this->assertEquals(
-            '$2,000,000.12345(2000000)',
+            '$2,000,000.12345(2000000)'
+,
             $this->object->apply("$2,000,000.12345")
         );
     }
@@ -153,7 +162,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply10()
     {
         $this->assertEquals(
-            '399332ドル(399332)',
+            '399332ドル(399332)'
+,
             $this->object->apply("399332ドル")
         );
     }
@@ -166,7 +176,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply11()
     {
         $this->assertEquals(
-            '$199(199)',
+            '$199(199)'
+,
             $this->object->apply("$199")
         );
     }
@@ -179,7 +190,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply12()
     {
         $this->assertEquals(
-            'キンドル',
+            'キンドル'
+,
             $this->object->apply("キンドル")
         );
     }
@@ -192,7 +204,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply13()
     {
         $this->assertEquals(
-            '円ドル',
+            '円ドル'
+,
             $this->object->apply("円ドル")
         );
     }
@@ -205,7 +218,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply14()
     {
         $this->assertEquals(
-            '6.99ドル(6)',
+            '6.99ドル(6)'
+,
             $this->object->apply("6.99ドル")
         );
     }
@@ -218,7 +232,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply15()
     {
         $this->assertEquals(
-            '399ドル(399)',
+            '399ドル(399)'
+,
             $this->object->apply("399ドル")
         );
     }
@@ -231,7 +246,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply16()
     {
         $this->assertEquals(
-            '38万2400ドル(382400)',
+            '38万2400ドル(382400)'
+,
             $this->object->apply("38万2400ドル")
         );
     }
@@ -244,7 +260,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply17()
     {
         $this->assertEquals(
-            '748億6000ドル(74800006000)',
+            '748億6000ドル(74800006000)'
+,
             $this->object->apply("748億6000ドル")
         );
     }
@@ -257,7 +274,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply18()
     {
         $this->assertEquals(
-            '1234567890ドル(1234567890)',
+            '1234567890ドル(1234567890)'
+,
             $this->object->apply("1234567890ドル")
         );
     }
@@ -270,7 +288,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply19()
     {
         $this->assertEquals(
-            '6.85億ドル(600000000)',
+            '6.85億ドル(685000000)'
+,
             $this->object->apply("6.85億ドル")
         );
     }
@@ -283,7 +302,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply20()
     {
         $this->assertEquals(
-            'この34,000ドル(34000)を支払うには',
+            'この34,000ドル(34000)を支払うには'
+,
             $this->object->apply("この34,000ドルを支払うには")
         );
     }
@@ -296,7 +316,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testApply21()
     {
         $this->assertEquals(
-            '経済効果が、最大で約80億ドル(8000000000)になると分析した',
+            '経済効果が、最大で約80億ドル(8000000000)になると分析した'
+,
             $this->object->apply("経済効果が、最大で約80億ドルになると分析した")
         );
     }
@@ -321,7 +342,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize()
     {
         $this->assertEquals(
-            "12345",
+            "12345"
+,
             $this->object->normalize(array("dollar1"=>"12,345"))
         );
     }
@@ -334,7 +356,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize2()
     {
         $this->assertEquals(
-            "12345",
+            "12345"
+,
             $this->object->normalize(array("dollar1"=>"12,345.67"))
         );
     }
@@ -347,7 +370,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize3()
     {
         $this->assertEquals(
-            "3000000000000",
+            "3000000000000"
+,
             $this->object->normalize(array("trillion"=>"3"))
         );
     }
@@ -360,7 +384,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize4()
     {
         $this->assertEquals(
-            "1030000600",
+            "1030000600"
+,
             $this->object->normalize(array("billion"=>"1","million"=>30,"dollar2"=>600))
         );
     }
@@ -373,7 +398,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize5()
     {
         $this->assertEquals(
-            "1000000",
+            "1000000"
+,
             $this->object->normalize(array("million"=>1))
         );
     }
@@ -386,7 +412,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize6()
     {
         $this->assertEquals(
-            "1000000",
+            "1280000"
+,
             $this->object->normalize(array("million"=>1.28))
         );
     }
@@ -399,7 +426,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize7()
     {
         $this->assertEquals(
-            "12500",
+            "12500"
+,
             $this->object->normalize(array("thousand"=>12,"dollar2"=>500))
         );
     }
@@ -412,7 +440,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize8()
     {
         $this->assertEquals(
-            "4860000000",
+            "4860000000"
+,
             $this->object->normalize(array("chou"=>"","oku"=>48,"man"=>6000))
         );
     }
@@ -425,7 +454,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize9()
     {
         $this->assertEquals(
-            "1000200030004",
+            "1000200030004"
+,
             $this->object->normalize(array("chou"=>1,"oku"=>2,"man"=>3,"dollar3"=>4))
         );
     }
@@ -438,7 +468,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize10()
     {
         $this->assertEquals(
-            "12300000000000",
+            "12300000000000"
+,
             $this->object->normalize(array("chou"=>12,"oku"=>3000))
         );
     }
@@ -451,7 +482,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize11()
     {
         $this->assertEquals(
-            "12000005000000",
+            "12000005000000"
+,
             $this->object->normalize(array("chou"=>12,"man"=>500))
         );
     }
@@ -464,7 +496,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize12()
     {
         $this->assertEquals(
-            "6",
+            "6"
+,
             $this->object->normalize(array("dollar3"=>"6.99"))
         );
     }
@@ -477,7 +510,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize13()
     {
         $this->assertEquals(
-            "20000",
+            "27000"
+,
             $this->object->normalize(array("man"=>2.7))
         );
     }
@@ -490,7 +524,8 @@ class UsdTest extends \PHPUnit_Framework_TestCase
     public function testNormalize14()
     {
         $this->assertEquals(
-            "16800000000",
+            "16800000000"
+,
             $this->object->normalize(array("oku"=>168))
         );
     }

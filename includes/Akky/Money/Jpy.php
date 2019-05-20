@@ -16,7 +16,7 @@ class Jpy extends Currency
      *
      * @assert ("abcde") == "abcde"
      * @assert ("1 million yen") == '1 million yen(1000000)'
-     * @assert ("23.4 billion Yen") == '23.4 billion Yen(23000000000)'
+     * @assert ("23.4 billion Yen") == '23.4 billion Yen(23400000000)'
      * @assert ("1 yen") == '1 yen(1)'
      * @assert ("\\15973280") == '\\15973280(15973280)'
      * @assert ("3194万6560円") == '3194万6560円(31946560)'
@@ -100,7 +100,7 @@ class Jpy extends Currency
      * @assert (array("chou"=>12,"oku"=>3000)) == "12300000000000"
      * @assert (array("chou"=>12,"man"=>500)) == "12000005000000"
      * @assert (array("yen3"=>"6.99")) == "6"
-     * @assert (array("man"=>2.7)) == "20000"
+     * @assert (array("man"=>2.7)) == "27000"
      * @assert (array("oku"=>168)) == "16800000000"
      */
     public function normalize($numbers) {
