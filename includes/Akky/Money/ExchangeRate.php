@@ -61,7 +61,13 @@ class ExchangeRate {
         $json = @file_get_contents($url, false, stream_context_create($options));
         if ($json === false) {
             // dummy rate when API is down or unavailable
-            return 110;
+            if (strncmp(strtoupper($from), 'JPY', 3) === 0) {
+                $this->_cached[$from][$to] = 0.00909;
+                return 0.00909;
+            } else {
+                $this->_cached[$from][$to] = 110;
+                return 110;
+            }
         } else {
             $decoded = json_decode($json, true);
             $rate = $decoded['rates'][strtoupper($to)];

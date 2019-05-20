@@ -1,6 +1,6 @@
 === Auto Currency Converter ===
 Contributors: akky
-Version 1.2.1
+Version 1.2.2
 Tags: currency, money, exchange, Japan, yen, Japanese, USA, dollar, JPY, USD
 Home: http://wordpress.org/extend/plugins/auto-currency-converter
 Support: @akky
@@ -41,6 +41,10 @@ For bloggers who already did such conversion manually, the plugin has an option 
 
  You may suppress the conversion by giving "acc_disable" tag on the post.
 
+= Are USD/JPY rate correct? How much is it up-to-date? =
+
+ It uses free currency converter API. However, when the API is down, this plugin uses direct value (110 yen / 1 dollar). This behaviour was changed at the version 1.2.2, I think it might be better than showing nothing converted.
+
 = How are Japanese zenkaku(full-width) digits handled? =
 
  All Japanese zenkaku digits are converted, then checked and filtered. Because of that, all digits in the text, even though they are not money related, will be converted with regular ASCII digits.
@@ -56,6 +60,9 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.2 =
+* 1.2.1 had a bug so not working properly.
 
 = 1.2.1 =
 * use a direct value 110 yen/dollar when currency API is down or unavaiable. To let it keep running on
