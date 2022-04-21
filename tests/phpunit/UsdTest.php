@@ -1,10 +1,11 @@
 <?php
 namespace Akky\Money;
+use PHPUnit\Framework\TestCase;
 
 /**
  * PHPUnit_SkeletonGenerator is not available anymoere. These tests are manually updated now.
  */
-class UsdTest extends \PHPUnit_Framework_TestCase
+class UsdTest extends TestCase
 {
     /**
      * @var Usd
@@ -15,7 +16,7 @@ class UsdTest extends \PHPUnit_Framework_TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->object = new Usd;
     }
@@ -24,7 +25,7 @@ class UsdTest extends \PHPUnit_Framework_TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
     }
 
